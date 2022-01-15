@@ -4,6 +4,7 @@ import org.testng.annotations.Test;
 import framework.TestBase;
 import sprint1Pages.ProductDetails;
 import org.testng.annotations.BeforeTest;
+import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 
@@ -56,6 +57,18 @@ public class ViewProductDetailsTest extends TestBase {
 		Assert.assertNotNull(productDetails.getThumbnail(picture2));
 		Assert.assertNotNull(productDetails.getThumbnail(picture3));
 		Assert.assertNotNull(productDetails.getThumbnail(picture4));
+	}
+	
+	@Test
+	public void canSeeReviewWithRating() {
+
+		// Arrange
+
+		// Act
+		WebElement review = productDetails.getReviewWithRating();
+
+		// Assert
+		Assert.assertNotNull(review);
 	}
 
 	@BeforeTest

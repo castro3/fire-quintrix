@@ -27,4 +27,8 @@ public class ProductDetails extends AutomationPage {
 	public WebElement getThumbnail(String thumbnail) {
 		return this.driver.findElement(By.id(thumbnail));
 	}
+	
+	public WebElement getReviewWithRating() {
+		return this.driver.findElement(By.id("product_comments_block_tab"));
+	}
 }

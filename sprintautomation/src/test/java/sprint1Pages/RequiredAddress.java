@@ -21,7 +21,35 @@ public class RequiredAddress extends AutomationPage {
 		addToCartButton.click();
 	}
 
-	public void clickProceed() {
+	public void goToCartCheckout() {
 		this.driver.findElement(By.xpath("//a[@title='Proceed to checkout']")).click();
+	}
+
+	public void clickProceedToCheckout() {
+		this.driver.findElement(By.xpath(".//a[@class='button btn btn-default standard-checkout button-medium']"))
+				.click();
+	}
+
+	public void signin() {
+		WebElement email = this.driver.findElement(By.xpath("//input[@id='email']"));
+		WebElement password = this.driver.findElement(By.xpath("//input[@id='passwd']"));
+		email.sendKeys("lowaccuser@gmail.com");
+		password.sendKeys("password");
+		this.driver.findElement(By.xpath("//button[@id='SubmitLogin']")).click();
+
+	}
+
+	public void submitAddress() {
+		this.driver.findElement(By.xpath("//button[@name='processAddress']")).click();
+	}
+
+	public void acceptShippingAndTerms() {
+		this.driver.findElement(By.xpath("//input[@name='cgv']")).click();
+		this.driver.findElement(By.xpath("//button[@name='processCarrier']")).click();
+	}
+
+	public WebElement getCheckoutTabStatus() {
+		return this.driver.findElement(By.xpath("//li[@id='step_end']"));
+
 	}
 }

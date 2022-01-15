@@ -7,6 +7,7 @@ import framework.TestBase;
 import sprint1Pages.AddToCart;
 
 import org.testng.annotations.BeforeMethod;
+import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 
 public class AddToCartTest extends TestBase {
@@ -14,8 +15,12 @@ public class AddToCartTest extends TestBase {
 	public AddToCart addToCart;
 
 	@Test
-	public void f() {
+	public void canAddToShoppingCart() {
 		addToCart = new AddToCart(this.getDriver());
+		addToCart.navigateToBlouseDetailsPage();
+		addToCart.addBlouseToCart();
+		String expectedResult = "Product successfully added to your shopping cart";
+		Assert.assertEquals(addToCart.getAddToCartConfirmation(), expectedResult);
 	}
 
 	@BeforeMethod

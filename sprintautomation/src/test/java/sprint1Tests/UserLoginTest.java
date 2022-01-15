@@ -13,7 +13,7 @@ public class UserLoginTest extends TestBase{
 	public UserLogin userLogin;
 
 	@Test
-	public void canCheckoutWithAddress() {
+	public void canLoginUser() {
 		String expectedResult = "Welcome to your account. Here you can manage all of your personal information and orders.";
 		userLogin = new UserLogin(this.getDriver());
 		userLogin.navigateToSignInPage();

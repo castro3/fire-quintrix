@@ -2,24 +2,27 @@ package sprint1Tests;
 
 import org.testng.annotations.Test;
 
-import framework.AutomationPage;
 import framework.TestBase;
+import sprint1Pages.RequiredAddress;
 
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.AfterMethod;
 
 public class RequireAddressTest extends TestBase {
 
-	public AutomationPage automationPage;
+	public RequiredAddress requiredAddress;
 
 	@Test
-	public void f() {
+	public void canCheckoutWithAddress() {
+		requiredAddress = new RequiredAddress(this.getDriver());
+		requiredAddress.navigateToWomenTab();
+		requiredAddress.addBlouseToCart();
+		requiredAddress.clickProceed();
 	}
 
 	@BeforeMethod
 	public void beforeMethod() {
 		this.setup();
-		automationPage = new AutomationPage(this.getDriver());
 	}
 
 	@AfterMethod

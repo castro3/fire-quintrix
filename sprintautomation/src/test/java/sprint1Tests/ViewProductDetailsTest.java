@@ -25,19 +25,19 @@ public class ViewProductDetailsTest extends TestBase {
 		Assert.assertEquals(actualPrice, expectedPrice);
 	}
 
-	//	  @Test
-	//	  public void canSeeProductTitle() {
-	//		  
-	//		  // Arrange
-	//		  
-	//		  // Act
-	////		  expectedTitle = "Printed Summer Dress";
-	//		  actualTitle = #center_column > div > div > div.pb-center-column.col-xs-12.col-sm-4 > h1;
-	//		  
-	//		  // Assert
-	//		  Assert.AssertNotNull(actualPrice);
-	////		  Assert.assertEquals(expectedPrice, actualPrice);
-	//	  }
+		  @Test
+		  public void canSeeProductTitle() {
+			  
+			  // Arrange
+			  String expectedTitle = "Printed Summer Dress";
+			  
+			  // Act
+			  String actualTitle = productDetails.getTitle();
+			  
+			  // Assert
+			  Assert.assertNotNull(actualTitle);
+			  Assert.assertEquals(expectedTitle, actualTitle);
+		  }
 
 	@BeforeTest
 	public void beforeTest() {

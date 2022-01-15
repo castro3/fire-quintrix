@@ -17,7 +17,10 @@ public class ProductDetails extends AutomationPage {
 	
 	public String getPrice() {
 		return this.driver.findElement(By.id("our_price_display")).getText();
-		
+	}
+	
+	public String getTitle() {
+		return this.driver.findElement(By.xpath("//*[@id=\"center_column\"]/div/div/div[3]/h1")).getText();
 	}
 
 }

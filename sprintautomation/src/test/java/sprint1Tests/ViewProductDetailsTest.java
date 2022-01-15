@@ -16,7 +16,7 @@ public class ViewProductDetailsTest extends TestBase {
 
 		// Arrange
 		String expectedPrice = "$30.50";
-		
+
 		// Act
 		String actualPrice = productDetails.getPrice();
 
@@ -25,19 +25,38 @@ public class ViewProductDetailsTest extends TestBase {
 		Assert.assertEquals(actualPrice, expectedPrice);
 	}
 
-		  @Test
-		  public void canSeeProductTitle() {
-			  
-			  // Arrange
-			  String expectedTitle = "Printed Summer Dress";
-			  
-			  // Act
-			  String actualTitle = productDetails.getTitle();
-			  
-			  // Assert
-			  Assert.assertNotNull(actualTitle);
-			  Assert.assertEquals(expectedTitle, actualTitle);
-		  }
+	@Test
+	public void canSeeProductTitle() {
+
+		// Arrange
+		String expectedTitle = "Printed Summer Dress";
+
+		// Act
+		String actualTitle = productDetails.getTitle();
+
+		// Assert
+		Assert.assertNotNull(actualTitle);
+		Assert.assertEquals(expectedTitle, actualTitle);
+	}
+
+	@Test
+	public void canSeeThumbnail() {
+
+		// Arrange
+		String picture1 = "thumb_16";
+		String picture2 = "thumb_17";
+		String picture3 = "thumb_18";
+		String picture4 = "thumb_19";
+
+		// Act
+		productDetails.getTitle();
+
+		// Assert
+		Assert.assertNotNull(productDetails.getThumbnail(picture1));
+		Assert.assertNotNull(productDetails.getThumbnail(picture2));
+		Assert.assertNotNull(productDetails.getThumbnail(picture3));
+		Assert.assertNotNull(productDetails.getThumbnail(picture4));
+	}
 
 	@BeforeTest
 	public void beforeTest() {

@@ -1,5 +1,23 @@
 package sprint1Pages;
 
-public class ProductDetails {
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+
+import framework.AutomationPage;
+
+public class ProductDetails extends AutomationPage {
+
+	public ProductDetails(WebDriver driver) {
+		super(driver);
+	}
+
+	public void navigateToPrintedSummerDress() {
+		this.driver.findElement(By.xpath(".//a[@data-id-product='6']//following-sibling::a")).click();
+	}
+	
+	public String getPrice() {
+		return this.driver.findElement(By.id("our_price_display")).getText();
+		
+	}
 
 }

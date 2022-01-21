@@ -1,0 +1,27 @@
+@Given("I am on the product page")
+public void user_is_on_Product_Page() {
+	driver = new ChromeDriver();
+	driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+	driver.navigate().to("http://demoqa.com");
+	driver.findElement(By.xpath(".//a[@data-id-product='6']//following-sibling::a")).click();
+}
+
+@When("When I look")
+public void user_can_see() {
+	driver.findElement(By.xpath(".//*[@id='account']/a")).click();
+
+	@Then ("I should see the product title")
+	driver.findElement(By.xpath("//*[@id=\"center_column\"]/div/div/div[3]/h1")).getText();
+	
+	@And ("I should see the thumbnail image")
+	driver.findElement(By.id(thumbnail));
+	
+	@And ("I should see the price")
+	driver.findElement(By.id("our_price_display")).getText();
+	
+	@And ("I should see the ratings")
+	driver.findElement(By.id("product_comments_block_tab"));
+	
+	@And ("I should see the reviews")
+	driver.findElement(By.id("product_comments_block_tab"));
+}

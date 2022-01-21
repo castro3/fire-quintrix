@@ -1,7 +1,8 @@
 package sprint2Cucumber.viewProductDetailsCucumber;
 
 import org.testng.annotations.Test;
-import cucumber.api.CucumberOptions;
+
+import io.cucumber.testng.CucumberOptions;
 
 @CucumberOptions(
         features = "src/test/sprint2Cucumber.viewProductDetailsCucumber/ViewPageDetails.feature",

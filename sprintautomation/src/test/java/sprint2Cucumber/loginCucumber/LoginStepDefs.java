@@ -1,40 +1,24 @@
 package sprint2Cucumber.loginCucumber;
 
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.util.concurrent.TimeUnit;
-
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
 
+import framework.TestBase;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import sprint1Pages.UserLogin;
 
-public class LoginStepDefs extends LoginTest{
-	
-	WebDriver driver;
+public class LoginStepDefs extends TestBase {
 	UserLogin userLogin;
 
 	@Given("^user is at homepage$")
 	public void user_is_at_homepage() throws Throwable {
-		Path resourceDirectory = Paths.get("src","test","resources");
-		String absolutePath = resourceDirectory.toFile().getAbsolutePath();
-		Path driverFile = Paths.get(absolutePath, "chromedriver.exe");
-		
-		System.setProperty("webdriver.chrome.driver", driverFile.toFile().getAbsolutePath());
-
-		this.driver = new ChromeDriver();	
-		
-		long pageLoadTimeout = 5;
-		this.driver.manage().timeouts().implicitlyWait(pageLoadTimeout , TimeUnit.SECONDS);
-		userLogin = new UserLogin(this.driver);
+		this.setup();
+		userLogin = new UserLogin(this.getDriver());
 	}
 	
-	@Then("^click on login button$")
-	public void click_on_login_button() throws Throwable {
+	@Then("^click on signin button$")
+	public void click_on_signin_button() throws Throwable {
 		userLogin.navigateToSignInPage();
 	}
 	
@@ -45,6 +29,7 @@ public class LoginStepDefs extends LoginTest{
 	
 	@And("^verify user is logged in$")
 	public void verify_user_is_logged_in() throws Throwable {
+		this.cleanup();
 		String expectedResult = "Welcome to your account. Here you can manage all of your personal information and orders.";
 		Assert.assertEquals(userLogin.getMyAccountConfirmation(), expectedResult);
 	}

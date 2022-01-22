@@ -2,7 +2,6 @@ package sprint1Tests;
 
 import org.testng.annotations.Test;
 
-import framework.AutomationPage;
 import framework.TestBase;
 import sprint1Pages.AddToCart;
 

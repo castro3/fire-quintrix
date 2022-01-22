@@ -13,7 +13,7 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import sprint1Pages.UserLogin;
 
-public class StepsLogin extends LoginTest{
+public class LoginStepDefs extends LoginTest{
 	
 	WebDriver driver;
 	UserLogin userLogin;

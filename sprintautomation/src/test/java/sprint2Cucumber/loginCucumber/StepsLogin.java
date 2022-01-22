@@ -19,7 +19,7 @@ public class StepsLogin extends LoginTest{
 	UserLogin userLogin;
 
 	@Given("^user is at homepage$")
-	public void homepage() throws Throwable {
+	public void user_is_at_homepage() throws Throwable {
 		Path resourceDirectory = Paths.get("src","test","resources");
 		String absolutePath = resourceDirectory.toFile().getAbsolutePath();
 		Path driverFile = Paths.get(absolutePath, "chromedriver.exe");
@@ -34,7 +34,7 @@ public class StepsLogin extends LoginTest{
 	}
 	
 	@Then("^click on login button$")
-	public void clickLogin() throws Throwable {
+	public void click_on_login_button() throws Throwable {
 		userLogin.navigateToSignInPage();
 	}
 	

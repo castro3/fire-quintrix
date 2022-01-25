@@ -17,19 +17,24 @@ public class CucumberViewPageDetails extends TestBase{
 		this.getDriver().findElement(By.xpath(".//a[@data-id-product='6']//following-sibling::a")).click();
 	}
 
-	@When("I look")
-	public void user_can_see() {
-		this.getDriver().findElement(By.xpath(".//*[@id='account']/a")).click();	
-	}
-
 	@Then("I should see the product title")
 	public String getTitle() {
 		return this.getDriver().findElement(By.xpath("//*[@id=\"center_column\"]/div/div/div[3]/h1")).getText();
 	}
 
 	@And("I should see the thumbnail image")
-	public WebElement getThumbnail(String thumbnail) {
-		return this.getDriver().findElement(By.id(thumbnail));
+	public WebElement getThumbnail1() {
+		return this.getDriver().findElement(By.id("thumb_16"));
+	}
+
+	@And("I should see the next thumbnail image")
+	public WebElement getThumbnail2() {
+		return this.getDriver().findElement(By.id("thumb_17"));
+	}
+
+	@And("I should see the final thumbnail image")
+	public WebElement getThumbnail3() {
+		return this.getDriver().findElement(By.id("thumb_18"));
 	}
 
 	@And("I should see the price")
@@ -38,13 +43,12 @@ public class CucumberViewPageDetails extends TestBase{
 	}
 	@And("I should see the ratings")
 	public WebElement getReviewWithRating() {
-		return this.getDriver().findElement(By.id("product_comments_block_tab"));
+		this.cleanup();
+		throw new io.cucumber.java.PendingException();
 	}
 
 	@Then("I should see the reviews")
 	public void i_should_see_the_reviews() {
-		this.cleanup();
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
+		throw new io.cucumber.java.PendingException();
 	}
 }

@@ -4,7 +4,7 @@ import org.openqa.selenium.WebDriver;
 public class AutomationPage {
 	
 	protected WebDriver driver;
-	private final String url = "http://www.invenauto.tech/index.php";
+	private final String url = "http://www.invenauto.tech/staging/index.php";
 
 	public AutomationPage(WebDriver driver) {
 		this.driver = driver;

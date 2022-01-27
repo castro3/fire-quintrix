@@ -4,24 +4,36 @@ import org.testng.annotations.Test;
 import framework.TestBase;
 import sprint3Pages.ProductDetailPage;
 import org.testng.annotations.BeforeTest;
+import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 
 public class ProductDetailPageTest  extends TestBase {
-
 	ProductDetailPage details;
-
-	@Test
-	public void f() {
-
-	}
-
+	
 	@BeforeTest
 	public void beforeTest() {
-		setup();
+		this.setup();
+		details = new ProductDetailPage(this.getDriver());
 	}
 
 	@AfterTest
 	public void afterTest() {
-		cleanup();
+		this.cleanup();
+	}
+
+	@Test
+	public void findQuantityByClickingText() {
+		details.clickText();
+		String expectedQuantity = "300 Items In stock";
+		String realAmount = details.getProductText();
+		Assert.assertEquals(realAmount, expectedQuantity);
+	}
+	
+	@Test
+	public void findQuantityByClickingImage() {
+		details.clickImage();
+		String expectedQuantity = "300 Items In stock";
+		String realAmount = details.getProductText();
+		Assert.assertEquals(realAmount, expectedQuantity);
 	}
 }

@@ -15,11 +15,23 @@ public class CheckoutPageTest extends TestBase {
 	
 	@Test
 	public void canReachCheckoutPage() {
+		String expectedCheckoutText = "Your shopping cart contains: 1 product",
+			   expectedAddressText = "Low acc",
+			   expectedConfirmationText = "Your order on Clothes Carnival is complete.";
+		
 		checkoutPage = new CheckoutPage(this.getDriver());
 		checkoutPage.mouseoverAndAddDressToCart();
 		checkoutPage.clickProceedToCheckout();
-		String expectedCheckoutText = "Your shopping cart contains: 1 product";
-		Assert.assertEquals(checkoutPage.getCheckoutHeader(), expectedCheckoutText);		
+		Assert.assertEquals(checkoutPage.getCheckoutHeader(), expectedCheckoutText);
+		checkoutPage.navigateToSignIn();
+		checkoutPage.signIn();
+		Assert.assertEquals(checkoutPage.getAddressText(), expectedAddressText);
+		checkoutPage.navigateToShipping();
+		checkoutPage.confirmShipping();
+		checkoutPage.selectCheckPayment();
+		checkoutPage.confirmOrder();
+		Assert.assertEquals(checkoutPage.getOrderConfirmationText(), expectedConfirmationText);		
+		
 	}
 
 	@BeforeTest

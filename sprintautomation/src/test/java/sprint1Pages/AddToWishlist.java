@@ -9,8 +9,6 @@ import framework.TestBase;
 
 public class AddToWishlist extends AutomationPage {
 	
-	//public ProductDetails productDetails;
-	
 	public AddToWishlist(WebDriver driver) {
 		super(driver);
 	}

@@ -33,14 +33,27 @@ public class SearchItemsByModifiersTest extends TestBase {
 
 	@Test
 	public void canSearchBySubCategory() {
+		String subCategoryText = "Choose from t-shirts, tops, blouses, short sleeves, long sleeves, tank tops, 3/4 sleeves and more.\n"
+				+ "Find the cut that suits you the best!";
+		searchItems.searchBySubCategory();
+		String TopsTextOutput = searchItems.getTopsSubCategoryText();
+		Assert.assertEquals(TopsTextOutput, subCategoryText);
 	}
 
 	@Test
 	public void canSearchByFilter() {
+		searchItems.searchByFilter();
+		String blackColorSelector = "background: rgb(67, 74, 84);"; // blackish color
+		String colorSelected = searchItems.getColorSelected();
+		Assert.assertEquals(colorSelected, blackColorSelector);
 	}
 
 	@Test
 	public void canSearchBySort() {
+		searchItems.searchBySortBy();
+		String selectedSort = searchItems.getSortSelected();
+		String expectedSelected = "Price: Lowest first";
+		Assert.assertEquals(selectedSort, expectedSelected );
 	}
 
 	@BeforeMethod

@@ -3,9 +3,7 @@ package sprint1Pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-
 import framework.AutomationPage;
-import framework.TestBase;
 
 public class AddToWishlist extends AutomationPage {
 	

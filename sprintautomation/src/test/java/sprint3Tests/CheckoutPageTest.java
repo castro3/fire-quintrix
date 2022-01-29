@@ -14,7 +14,7 @@ public class CheckoutPageTest extends TestBase {
 	CheckoutPage checkoutPage;
 	
 	@Test
-	public void canReachCheckoutPage() {
+	public void canReachCheckoutPageAndPlaceOrder() {
 		String expectedCheckoutText = "Your shopping cart contains: 1 product",
 			   expectedAddressText = "Low acc",
 			   expectedConfirmationText = "Your order on Clothes Carnival is complete.";
@@ -30,8 +30,7 @@ public class CheckoutPageTest extends TestBase {
 		checkoutPage.confirmShipping();
 		checkoutPage.selectCheckPayment();
 		checkoutPage.confirmOrder();
-		Assert.assertEquals(checkoutPage.getOrderConfirmationText(), expectedConfirmationText);		
-		
+		Assert.assertEquals(checkoutPage.getOrderConfirmationText(), expectedConfirmationText);
 	}
 
 	@BeforeTest

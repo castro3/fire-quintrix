@@ -1,4 +1,4 @@
-package sprint3Tests;
+package sprint3Pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;

@@ -1,6 +1,7 @@
 package sprint1Pages;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
@@ -19,20 +20,20 @@ public class RegisterUser extends AutomationPage{
 	public void enterEmailCreation() {
 		WebElement email = this.driver.findElement(By.xpath("//input[@id='email_create']"));
 		email.sendKeys("testuseraccount@gmail.com");
-		this.driver.findElement(By.xpath("//button[@id='SubmitLogin']")).click();
+		email.sendKeys(Keys.ENTER);
 	}
 	
 	public void createAccountDetails() {
-		WebElement firstName = this.driver.findElement(By.xpath(""));
-		WebElement lastName = this.driver.findElement(By.xpath(""));
-		WebElement password = this.driver.findElement(By.xpath(""));
-		WebElement addressFirstName = this.driver.findElement(By.xpath(""));
-		WebElement addressLastName = this.driver.findElement(By.xpath(""));
-		WebElement address = this.driver.findElement(By.xpath(""));
-		WebElement city = this.driver.findElement(By.xpath(""));
-		WebElement state = this.driver.findElement(By.xpath(""));
-		WebElement zipcode = this.driver.findElement(By.xpath(""));
-		WebElement country = this.driver.findElement(By.xpath(""));
-		WebElement homephone = this.driver.findElement(By.xpath(""));
+		WebElement firstName = this.driver.findElement(By.xpath(".//input[@id='customer_firstname']"));
+		WebElement lastName = this.driver.findElement(By.xpath(".//input[@id='customer_lastname']"));
+		WebElement password = this.driver.findElement(By.xpath(".//input[@name='passwd']"));
+		firstName.sendKeys("test");
+		lastName.sendKeys("lastName");
+		password.sendKeys("password");
+		this.driver.findElement(By.xpath("//button[@id='submitAccount']")).click();
+	}
+	
+	public String getAccountCreatedConfirmation() {
+		return this.driver.findElement(By.xpath(".//p[@class='alert alert-success']")).getText();
 	}
 }

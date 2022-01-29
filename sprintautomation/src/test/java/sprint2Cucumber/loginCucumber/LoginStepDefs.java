@@ -29,8 +29,9 @@ public class LoginStepDefs extends TestBase {
 	
 	@And("^verify user is logged in$")
 	public void verify_user_is_logged_in() throws Throwable {
+		String actualResult = userLogin.getMyAccountConfirmation();
 		this.cleanup();
 		String expectedResult = "Welcome to your account. Here you can manage all of your personal information and orders.";
-		Assert.assertEquals(userLogin.getMyAccountConfirmation(), expectedResult);
+		Assert.assertEquals(actualResult, expectedResult);
 	}
 }

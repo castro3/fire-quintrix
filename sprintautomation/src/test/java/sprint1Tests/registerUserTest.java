@@ -5,6 +5,7 @@ import org.testng.annotations.Test;
 import framework.TestBase;
 import sprint1Pages.RegisterUser;
 import org.testng.annotations.BeforeMethod;
+import org.openqa.selenium.NoSuchElementException;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 

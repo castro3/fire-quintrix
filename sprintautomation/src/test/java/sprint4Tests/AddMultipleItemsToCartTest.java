@@ -23,7 +23,8 @@ public class AddMultipleItemsToCartTest extends TestBase {
 		addToCart.addMultipleBlousesToCart();
 		addToCart.navigateToCart();
 		
-		Assert.assertEquals(addToCart.getCartHeader(), expectedResult);
+		String actualResult = addToCart.getCartHeader();
+		Assert.assertEquals(actualResult, expectedResult);
 	}	
 
 	@BeforeMethod

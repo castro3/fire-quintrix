@@ -34,8 +34,7 @@ public class PastOrderHistory extends AutomationPage {
 	}
 	
 	public String getOrderTotalPrice() {
-		WebElement tableFooter = this.driver.findElement(By.cssSelector("#order-detail-content > table > tfoot"));
-		return tableFooter.findElement(By.cssSelector("tr.totalprice.item > td:nth-child(2) > span")).getText();
+		return this.driver.findElement(By.cssSelector("tr[class='totalprice item'] > td > span[class='price']")).getText();
 	}
 
 }

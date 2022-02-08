@@ -22,10 +22,8 @@ public class ChangeColorChangesPicTest extends TestBase{
 		colors.navigateToProductPage();
 		colors.clickOnBlue();
 		String blueSource = colors.selectedImage();
-		System.out.println(blueSource);
 		colors.clickOnOrange();
 		String orangeSource = colors.selectedImage();
-		System.out.println(orangeSource);
 		
 		Assert.assertNotEquals(blueSource, orangeSource);
 	}

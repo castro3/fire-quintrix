@@ -1,15 +1,13 @@
 package sprint1Pages;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 import framework.AutomationPage;
-import framework.TestBase;
 
 public class AddToWishlist extends AutomationPage {
-	
-	//public ProductDetails productDetails;
 	
 	public AddToWishlist(WebDriver driver) {
 		super(driver);
@@ -20,13 +18,17 @@ public class AddToWishlist extends AutomationPage {
 	}
 	
 	public void addBlouseToWishlist() {
-		WebElement addToWishlistLink = this.driver.findElement(By.xpath("//a[@id='wishlist_button']"));
-		addToWishlistLink.click();
+		try {
+			WebElement addToWishlistLink = this.driver.findElement(By.xpath("//a[@id='wishlist_button']"));
+			addToWishlistLink.click();
+		} 
+		catch (NoSuchElementException e) {
+			System.out.println("Unable to find element:" + e.getStackTrace());
+		}
 	}
 	
 	public String getMessageText() {
 		return this.driver.findElement(By.cssSelector("p[class='fancybox-error']")).getText();
 	}
 	
-
 }

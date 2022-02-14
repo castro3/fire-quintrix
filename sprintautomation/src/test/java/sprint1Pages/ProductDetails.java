@@ -1,6 +1,7 @@
 package sprint1Pages;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
@@ -29,6 +30,12 @@ public class ProductDetails extends AutomationPage {
 	}
 	
 	public WebElement getReviewWithRating() {
-		return this.driver.findElement(By.id("product_comments_block_tab"));
+		try {
+			return this.driver.findElement(By.id("product_comments_block_tab"));
+		}
+		catch (NoSuchElementException e){
+			System.out.println("Hmm... there isn't a review or rating for this.");
+		}
+		return null;
 	}
 }

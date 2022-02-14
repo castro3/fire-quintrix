@@ -1,4 +1,4 @@
-package sprint1Tests;
+package sprint4Tests;
 
 import org.testng.annotations.Test;
 
@@ -9,18 +9,23 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 
-public class AddToCartTest extends TestBase {
+public class AddMultipleItemsToCartTest extends TestBase {
 
 	public AddToCart addToCart;
-
+	
 	@Test
-	public void canAddToShoppingCart() {
+	public void canAddMultipleItemsToShoppingCart() {
+		String expectedResult = "Your shopping cart contains: 3 products";		
 		addToCart = new AddToCart(this.getDriver());
+		
+		addToCart.mouseoverAndAddShirtToCart();
 		addToCart.navigateToBlouseDetailsPage();
-		addToCart.addBlouseToCart();
-		String expectedResult = "Product successfully added to your shopping cart";
-		Assert.assertEquals(addToCart.getAddToCartConfirmation(), expectedResult);
-	}
+		addToCart.addMultipleBlousesToCart();
+		addToCart.navigateToCart();
+		
+		String actualResult = addToCart.getCartHeader();
+		Assert.assertEquals(actualResult, expectedResult);
+	}	
 
 	@BeforeMethod
 	public void beforeMethod() {

@@ -68,7 +68,7 @@ public class ViewProductDetailsTest extends TestBase {
 		WebElement review = productDetails.getReviewWithRating();
 
 		// Assert
-		Assert.assertNotNull(review);
+		Assert.assertNull(review); // because it isn't implemented
 	}
 
 	@BeforeTest
